@@ -12,12 +12,25 @@ find_package(catkin REQUIRED COMPONENTS
   nav_msgs
   roscpp
   rospy
+  message_generation
+)
+
+catkin_python_setup()
+
+add_service_files(
+  FILES
+  NextPose.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  geometry_msgs
 )
 
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES turtlebot3_scheduling
-#  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy
+  LIBRARIES turtlebot3_scheduling
+  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy message_runtime
 #  DEPENDS system_lib
 )
 
@@ -25,8 +38,6 @@ include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
 )
-
-catkin_python_setup()
 
 catkin_install_python(PROGRAMS
   src/control_node.py
