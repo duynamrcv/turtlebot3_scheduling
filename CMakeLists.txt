@@ -41,5 +41,6 @@ include_directories(
 
 catkin_install_python(PROGRAMS
   src/control_node.py
+  src/scheduling_node.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

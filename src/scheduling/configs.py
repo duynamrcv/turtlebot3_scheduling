@@ -9,7 +9,7 @@ KP_ALPHA = 1.5
 KP_BETA = -.3
 
 MAX_V = 1.0
-MAX_W = np.pi/3
+MAX_W = np.pi/2
 
 # Publish topics
 STATE_TOPIC = "state"           # std_msgs.msg/UInt8

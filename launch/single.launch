@@ -17,4 +17,5 @@
   
     <node pkg="gazebo_ros" type="spawn_model" name="spawn_urdf" args="-urdf -model turtlebot3_$(arg model) -x $(arg x_pos) -y $(arg y_pos) -z $(arg z_pos) -param robot_description" />
     <node name="control_node" pkg="turtlebot3_scheduling" type="control_node.py" output="screen"/>
+    <node name="scheduling_node" pkg="turtlebot3_scheduling" type="scheduling_node.py" output="screen"/>
 </launch>
