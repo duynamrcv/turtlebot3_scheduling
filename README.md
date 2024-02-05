@@ -39,6 +39,17 @@ $ rosservice call /next_goal "goal:
 To be defined
 
 ## Explanation
+###  State Diagrams
+```mermaid
+stateDiagram
+    [*] --> IDLE
+    IDLE --> [*]
+    IDLE --> ASSIGNED
+    ASSIGNED --> IDLE
+```
+* ```IDLE``` state to be ready to receive the task of moving to the next target.
+* ```ASSIGNED``` state to make a move to the next target without being affected by further assignment.
+
 ### Moving to pose
 Given the robot position $p=\left[x, y, \theta\right]^T$ and the goal position $p_g=\left[x_g, y_g, \theta_g\right]^T$
 
@@ -63,10 +74,10 @@ Convert to the polar coordination
 
 The control signal therefore can be computed as follows:
 ```math
-v = k_\rho*\rho
+v = k_\rho\rho
 ```
 ```math
-w = k_\alpha*\alpha + k_\beta*\beta
+w = k_\alpha\alpha + k_\beta\beta
 ```
 
 Ensure the steering capacity: $\alpha > \pi /2$ or $\alpha < -\pi/2$, revert the velocity direction $v = -v$
