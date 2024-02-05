@@ -99,8 +99,8 @@ class ControlNode:
         y_diff = self.goal_current[1] - pose_current[1]
 
         rho = np.hypot(x_diff, y_diff)
-        alpha = (np.arctan2(y_diff, x_diff) - pose_current[2] + np.pi)%(2*np.pi) - np.pi
-        beta = (self.goal_current[2] - pose_current[2] - alpha + np.pi) % (2 * np.pi) - np.pi
+        alpha = (np.arctan2(y_diff, x_diff) - pose_current[2] + np.pi)%(2*np.pi) - np.pi        # norm to [-pi; pi]
+        beta = (self.goal_current[2] - pose_current[2] - alpha + np.pi) % (2 * np.pi) - np.pi   # norm to [-pi; pi]
 
         v = KP_RHO*rho
         w = KP_ALPHA*alpha + KP_BETA*beta
